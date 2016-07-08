@@ -1,0 +1,26 @@
+.info-div {
+  position: relative;
+  width: 200px;
+  padding: 5px 20px 8px;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: left; }
+
+.wrapper {
+  box-sizing: border-box;
+  height: 100%;
+  position: relative;
+  padding: 25px 0;
+  padding-left: 15px;
+  margin: 0;
+  z-index: 1; }
+
+.info-list {
+  margin: 0;
+  padding: 0; }
+
+.info-list li {
+  list-style: none;
+  margin-top: 15px; }
+
+/*# sourceMappingURL=app.css.map */
