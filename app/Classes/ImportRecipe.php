@@ -7,8 +7,9 @@ use DOMDocument;
 use Illuminate\Support\Collection;
 
 class ImportRecipe{
-    public function scrape($url){
-        $md = new MicrodataPhp($url);
+    public function scrape($html){
+        $config = array('html' => $html);
+        $md = new MicrodataPhp($config);
         $data = $md->obj();
         return $data;
     }
@@ -64,5 +65,18 @@ class ImportRecipe{
             }
         }
 
+    }
+
+    public function curl_get_contents($url)
+    {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        $data = curl_exec($ch);
+        curl_close($ch);
+        return $data;
     }
 }

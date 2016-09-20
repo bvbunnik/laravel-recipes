@@ -45,15 +45,22 @@ class RecipeController extends Controller
         return view('recipes.create', compact('courses_list', 'cuisines_list', 'ingredients_list', 'units_list'));
     }
 
+
+
     public function import(Request $request)
     {
         $url = $request->url;
         $importRecipes = new ImportRecipe();
-        $data = $importRecipes->scrape($url);
-        $html = file_get_contents($url);
+        $html = $importRecipes->curl_get_contents($url);
+        $data = $importRecipes->scrape($html);
         $data1 = $importRecipes->parseIngredients($html, 'a');
+        //dd($data, $data1);
         $recipe = new Recipe();
-        $i = count($data->items) - 1;
+        if (count($data->items)>2){
+            $i=0;
+        } else {
+            $i = count($data->items) - 1;
+        }
         if (count($data1)==0) {
             $importRecipes->getIngredients($data, $recipe, $i);
         } else {
