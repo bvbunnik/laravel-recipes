@@ -5,8 +5,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 offset-md-1">
-                <div class="card">
-                    <div class="card-header">Add a recipe</div>
+                <div class="card card-inverse">
+                    <div class="card-header card-primary">Add a recipe</div>
                     <div class="card-block">
                     @include('common.errors')
                         <div class="controls">

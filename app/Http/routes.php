@@ -25,4 +25,5 @@ Route::get('recipes/import/', function () {
     return view('recipes.import');
 });
 Route::post('recipes/import', 'RecipeController@import');
+Route::post('recipes/{id}/rate', 'RecipeController@rate');
 Route::resource('recipes', 'RecipeController');

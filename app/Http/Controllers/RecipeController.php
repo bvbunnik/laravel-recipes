@@ -26,7 +26,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        $recipes = Recipe::orderBy('created_at', 'asc')->get();
+        $recipes = Recipe::orderBy('rating', 'desc')->get();
 
         return view('recipes.index', compact('recipes'));
     }
@@ -61,14 +61,15 @@ class RecipeController extends Controller
         } else {
             $i = count($data->items) - 1;
         }
+
         if (count($data1)==0) {
             $importRecipes->getIngredients($data, $recipe, $i);
         } else {
-            $recipe->ingredients = $data1['descr'];
+            $recipe->ingredients['descr'] = $data1['descr'];
+            $recipe->ingredients['unit'] = $data1['unit'];
+            $recipe->ingredients['quantity'] = $data1['quantity'];
         }
 
-
-        
         $instructions = mb_ereg_replace("\s{1,}", " ", $data->items[$i]->properties['recipeInstructions'][0]);
 
         $recipe->preparation = $instructions;
@@ -94,12 +95,12 @@ class RecipeController extends Controller
         if (substr($data->items[$i]->properties['image'][0],0,2)=="//"){
             $data->items[$i]->properties['image'][0] = "http:" . $data->items[$i]->properties['image'][0];
         }
-        //n$img = Image::make($data->items[1]->properties['image'][0]);
+        //$img = Image::make($data->items[1]->properties['image'][0]);
         //$filename = 'files/photos/' . Carbon::now()->timestamp . '.pg';
         //$img->save($filename, 90);
         
-        $recipe->photo = $data->items[$i]->properties['image'][0];
-        //dd($recipe);
+        $recipe->photo_url = $data->items[$i]->properties['image'][0];
+
         return view('recipes.importform')->with('recipe', $recipe);
         //$recipe->save();
     }
@@ -162,6 +163,15 @@ class RecipeController extends Controller
         return view('recipes.recipe', compact('recipe'));
     }
 
+    public function rate(Request $request, $id)
+    {
+        $recipe = Recipe::findorFail($id);
+        $recipe->rating = $request->rating;
+        $recipe->save();
+        return response()->json([
+            "rating" => $recipe->rating
+        ]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
