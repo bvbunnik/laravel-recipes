@@ -13,24 +13,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/css/bootstrap.css">
+
     {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cerulean/bootstrap.min.css">--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.theme.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
 
     <!-- CKEditor -->
     <script src="//cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
 
-{{--    <style>
-        body {
-            font-family: 'Lato';
-        }
-
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>--}}
 </head>
 <body >
     <nav class="navbar navbar-static-top">
@@ -45,34 +37,15 @@
             </div>
 
         </div>
-        <a href={{ url('/') }} class="navbar-brand">Recipes Database</a>
+        <a href={{ url('/') }} class="navbar-brand">Home</a>
         <ul class="nav navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ url('/recipes/create') }}">Add Recipe</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/recipes/import') }}">Import Recipe</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav pull-xs-right">
-            <!-- Authentication Links -->
-            @if (Auth::guest())
-                <li class="nav-item"><a href="{{ url('/login') }}">Login</a></li>
-                <li class="nav-item"><a href="{{ url('/register') }}">Register</a></li>
-            @else
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                    </ul>
-                </li>
-            @endif
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recipes</a>
+            <div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
+                <a class="dropdown-item" href="{{ url('/recipes/create') }}">Add Recipe</a>
+                <a class="dropdown-item" href="{{ url('/recipes/import') }}">Import Recipe</a>
+            </div>
+        </li>
         </ul>
         <form class="form-inline pull-xs-right">
             <input class="form-control" type="text" placeholder="Search">

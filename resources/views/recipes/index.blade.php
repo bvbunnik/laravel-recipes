@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-
     <div class="recipe">
         <div class="container">
             @foreach(array_chunk($recipes->all(),4) as $recipesRow)
@@ -10,18 +8,21 @@
                     <div class="card-deck">
                     @foreach($recipesRow as $recipe)
                         <div class="card">
-                            <h5 class="card-title"><a href="/recipes/{{$recipe->id}}/">{{ $recipe->title }}</a></h5>
-                            <img class="card-img" src="{{url($recipe->photo)}}" alt="Card image">
-
+                            <a href="/recipes/{{$recipe->id}}/">
+                            <img class="card-img-top" src="{{url($recipe->photo)}}" alt="{{ $recipe->title }}">
                             <div class="card-block">
-                                <div class="pull-right">Rating: <input type="hidden" class="rating" data-fractions="2" value="{{$recipe->rating}}" data-readonly/></div>
+                                <h6 class="font-weight-bold"><a href="/recipes/{{$recipe->id}}/">{{ $recipe->title }}</a></h6>
+                                <div class="pull-right"></div>
                             </div>
+                            </a>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Rating: <input type="hidden" class="rating" data-fractions="2" value="{{$recipe->rating}}" data-readonly/>
+                                <a href="" class="pull-lg-right"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
 
-                            <div class="card-footer text-muted">
-                                <a href="" class="pull-lg-right">Add to favourites</a>
-                                <div class="pull-lg-left">Last prepared: 2 days ago</div>
-                            </div>
                         </div>
+
                     @endforeach
                     </div>
                 </div>

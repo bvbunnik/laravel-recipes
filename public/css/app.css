@@ -96,10 +96,22 @@
 .jumbotron .container {
   max-width: 40rem; }
 
+a {
+  color: #797979;
+  text-decoration: none; }
+
+a:focus, a:hover {
+  color: #5cb85c;
+  text-decoration: none; }
+
+a:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px; }
+
 .recipe {
   padding-top: 6rem;
   padding-bottom: 3rem;
-  background-color: #ffffff; }
+  background-color: #f1f1f1; }
 
 .card-img {
   border-radius: 0.25rem;
@@ -109,19 +121,23 @@
   border-radius: 0.25rem;
   width: 100%; }
 
-/*
-.card {
-  float: left;
-  width: 33.333%;
-  padding: .75rem;
-  margin-bottom: 2rem;
-  border: 0;
-}
+.card-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+
+.card-deck .card {
+  padding-bottom: 0px; }
+
+.card-block {
+  margin-bottom: 10px; }
+
+.card:hover {
+  box-shadow: 0 0 4px #999; }
 
 .card > img {
-  margin-bottom: .75rem;
-}
-*/
+  margin-bottom: .75rem; }
+
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem; }
