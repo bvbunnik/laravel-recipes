@@ -11,7 +11,7 @@
                             <a href="/recipes/{{$recipe->id}}/">
                             <img class="card-img-top" src="{{url($recipe->photo)}}" alt="{{ $recipe->title }}">
                             <div class="card-block">
-                                <h6 class="font-weight-bold"><a href="/recipes/{{$recipe->id}}/">{{ $recipe->title }}</a></h6>
+                                <h6><a href="/recipes/{{$recipe->id}}/">{{ $recipe->title }}</a></h6>
                                 <div class="pull-right"></div>
                             </div>
                             </a>

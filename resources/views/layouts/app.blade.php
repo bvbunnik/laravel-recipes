@@ -11,7 +11,7 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
-
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300" rel="stylesheet">
     <!-- Styles -->
 
     {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cerulean/bootstrap.min.css">--}}
@@ -22,7 +22,11 @@
 
     <!-- CKEditor -->
     <script src="//cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
-
+    <style>
+        body{
+            font-family: 'Merriweather', serif;
+        }
+    </style>
 </head>
 <body >
     <nav class="navbar navbar-static-top">

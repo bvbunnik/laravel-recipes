@@ -1,6 +1,10 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "bootstrap-rating";
 
+body{
+  font-family: 'Merriweather', serif;
+}
+
 .custom-star {
   color: #309DE1;
 }
