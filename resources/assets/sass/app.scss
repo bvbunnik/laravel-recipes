@@ -1,5 +1,10 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "bootstrap-rating";
+@font-face {
+  font-family:'Unthrift First Personal';
+  src:url(/fonts/unthriftfirstpersonal.eot);
+  src:url(/fonts/unthriftfirstpersonal.woff2) format("woff2"),url(/fonts/unthriftfirstpersonal.woff) format("woff"),url(/fonts/unthriftfirstpersonal.ttf) format("truetype"),url(/fonts/unthriftfirstpersonal.svg) format("svg")
+}
 
 body{
   font-family: 'Merriweather', serif;
@@ -7,6 +12,19 @@ body{
 
 .custom-star {
   color: #309DE1;
+}
+
+#head-c {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 40px;
+}
+
+#head-c h1 {
+  font-family: 'Unthrift First Personal' !important;
+  font-size: 60px;
+  margin-bottom: 0;
+  color: #818a91;
 }
 
 .info-div{
@@ -89,25 +107,6 @@ body{
   color: #fff;
 }
 
-.jumbotron {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  margin-bottom: 0;
-  background-color: #fff;
-}
-
-.jumbotron p:last-child {
-  margin-bottom: 0;
-}
-
-.jumbotron-heading {
-  font-weight: 300;
-}
-
-.jumbotron .container {
-  max-width: 40rem;
-}
-
 a {
   color: #797979;
   text-decoration: none;
@@ -149,7 +148,7 @@ a:focus {
 }
 
 .card-block{
-  margin-bottom: 10px;
+  margin-bottom: 150px;
 }
 
 .card:hover {

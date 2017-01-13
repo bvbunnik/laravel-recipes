@@ -11,8 +11,27 @@
 .symbol-filled {
   background-color: #309DE1; }
 
+@font-face {
+  font-family: 'Unthrift First Personal';
+  src: url(/fonts/unthriftfirstpersonal.eot);
+  src: url(/fonts/unthriftfirstpersonal.woff2) format("woff2"), url(/fonts/unthriftfirstpersonal.woff) format("woff"), url(/fonts/unthriftfirstpersonal.ttf) format("truetype"), url(/fonts/unthriftfirstpersonal.svg) format("svg"); }
+
+body {
+  font-family: 'Merriweather', serif; }
+
 .custom-star {
   color: #309DE1; }
+
+#head-c {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 40px; }
+
+#head-c h1 {
+  font-family: 'Unthrift First Personal' !important;
+  font-size: 60px;
+  margin-bottom: 0;
+  color: #818a91; }
 
 .info-div {
   position: relative;
@@ -81,21 +100,6 @@
 .social a:hover {
   color: #fff; }
 
-.jumbotron {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  margin-bottom: 0;
-  background-color: #fff; }
-
-.jumbotron p:last-child {
-  margin-bottom: 0; }
-
-.jumbotron-heading {
-  font-weight: 300; }
-
-.jumbotron .container {
-  max-width: 40rem; }
-
 a {
   color: #797979;
   text-decoration: none; }
@@ -130,7 +134,7 @@ a:focus {
   padding-bottom: 0px; }
 
 .card-block {
-  margin-bottom: 10px; }
+  margin-bottom: 150px; }
 
 .card:hover {
   box-shadow: 0 0 4px #999; }

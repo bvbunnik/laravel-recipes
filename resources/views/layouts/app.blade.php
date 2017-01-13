@@ -22,11 +22,7 @@
 
     <!-- CKEditor -->
     <script src="//cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
-    <style>
-        body{
-            font-family: 'Merriweather', serif;
-        }
-    </style>
+
 </head>
 <body >
     <nav class="navbar navbar-static-top">
@@ -65,7 +61,13 @@
             <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
         </div>
     </section>--}}
-
+    <div id="head-c" class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <h1>Recipes Database</h1>
+            </div>
+        </div>
+    </div>
     @yield('content')
 
     <!-- JavaScripts -->
