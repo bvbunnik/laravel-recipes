@@ -205,4 +205,20 @@ class RecipeController extends Controller
     {
         //
     }
+
+    public function showFavourites()
+    {
+        $recipes = Recipe::where('favourite',1)->orderBy('rating', 'desc')->get();
+
+        return view('recipes.index', compact('recipes'));
+    }
+
+    public function toggleFavourite($id)
+    {
+        $recipe = Recipe::findorFail($id);
+
+        $recipe->favourite = !$recipe->favourite;
+        $recipe->save();
+        return redirect()->action('RecipeController@index');
+    }
 }

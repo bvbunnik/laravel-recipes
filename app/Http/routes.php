@@ -26,4 +26,6 @@ Route::get('recipes/import/', function () {
 });
 Route::post('recipes/import', 'RecipeController@import');
 Route::post('recipes/{id}/rate', 'RecipeController@rate');
+Route::get('/recipes/favourites/', 'RecipeController@showFavourites');
+Route::get('/recipes/toggle_favourite/{id}', 'RecipeController@toggleFavourite');
 Route::resource('recipes', 'RecipeController');

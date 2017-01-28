@@ -38,7 +38,7 @@
 
         </div>
         <a href={{ url('/') }} class="navbar-brand">Home</a>
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav mr-auto">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recipes</a>
             <div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
@@ -46,6 +46,9 @@
                 <a class="dropdown-item" href="{{ url('/recipes/import') }}">Import Recipe</a>
             </div>
         </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/recipes/favourites">Favourites</a>
+            </li>
         </ul>
         <form class="form-inline pull-xs-right">
             <input class="form-control" type="text" placeholder="Search">

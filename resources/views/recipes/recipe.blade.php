@@ -24,7 +24,9 @@
                                 <li><span class="fa fa-user" aria-hidden="true"></span> {!! $recipe->servings !!} persons</li>
                                 <li><span class="fa fa-clock-o" aria-hidden="true"></span> {!! $recipe->cooking_time !!} minutes</li>
                                 <li><span class="fa fa-flag" aria-hidden="true"></span> {!! $recipe->cuisine->name !!}</li>
-                                <li>Rating: <input type="hidden" class="rating" data-fractions="2" value="{{$recipe->rating}}" data-readonly/> <a tabindex="0" style="color: #000;  text-decoration: underline;" data-toggle="popover" title="Your rating" data-content='<input type="hidden" class="rating" data-fractions="2"/>' data-html="true" class="popover-dismiss">rate recipe</a></li>
+                                <li>Rating: <input type="hidden" class="rating" data-fractions="2" value="{{$recipe->rating}}">
+                                    <div class="rating-success" style="display: none;">Saved your rating!</div>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -59,45 +61,28 @@
 @section('after-script')
     <script type="text/javascript" src="/js/bootstrap-rating.js"></script>
     <script>
-        function theFunction(){
-            $('.rating').rating({
-                filled: 'fa fa-star custom-star',
-                empty: 'fa fa-star-o custom-star'
-            });
 
-            $('.rating').on('change', function () {
-                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-
-                $.ajax({
-                    url: '/recipes/{{$recipe->id}}/rate',
-                    type: 'POST',
-                    data: {_token: CSRF_TOKEN, rating: $(this).val()},
-                    dataType: 'JSON',
-                    success: function (response) {
-                        $('.popover-dismiss').popover('hide');
-                        location.reload(true);
-                        //alert('New rating: ' + $(this).val());
-                    }
-                });
-                //alert('Rating: ' + $(this).val());
-            });
-        }
-
-        $(document).ready(function(){
-                theFunction();
-        });
 
         $('.rating').rating({
             filled: 'fa fa-star custom-star',
             empty: 'fa fa-star-o custom-star'
         });
 
-        $('.popover-dismiss').popover({
+        $('.rating').on('change', function () {
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+            $.ajax({
+                url: '/recipes/{{$recipe->id}}/rate',
+                type: 'POST',
+                data: {_token: CSRF_TOKEN, rating: $(this).val()},
+                dataType: 'JSON',
+                success: function (response) {
+                    $('.rating-success').toggle().delay(1000).fadeOut();
+                }
+            });
 
         });
 
-        $('.popover-dismiss').on('shown.bs.popover', function(){
-                theFunction();
-        });
+
     </script>
 @endsection
