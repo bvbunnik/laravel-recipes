@@ -18,7 +18,13 @@
                             <div class="card-footer">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">Rating: <input type="hidden" class="rating" data-fractions="2" value="{{$recipe->rating}}" data-readonly/>
-                                    <a href="/recipes/toggle_favourite/{{$recipe->id}}" class="pull-lg-right"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                    <a href="/recipes/toggle_favourite/{{$recipe->id}}" class="pull-lg-right">
+                                        @if($recipe->favourite)
+                                            <i class="fa fa-heart favourite" aria-hidden="true"></i>
+                                        @else
+                                            <i class="fa fa-heart-o favourite" aria-hidden="true"></i>
+                                        @endif
+                                    </a>
                                     </li>
                                 </ul>
                             </div>

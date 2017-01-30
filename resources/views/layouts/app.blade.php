@@ -51,7 +51,7 @@
             </li>
         </ul>
         <form class="form-inline pull-xs-right">
-            <input class="form-control" type="text" placeholder="Search">
+            <input class="form-control" type="text" placeholder="Not yet implemtented...">
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
 
