@@ -5,20 +5,22 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.5.9",
-        "laravel/framework": "5.2.*",
+        "php": ">=5.6.4",
+        "laravel/framework": "5.4.*",
         "rtconner/laravel-tagging": "~2.1",
         "intervention/image": "^2.3",
         "laravelcollective/html": "~5.0",
-        "linclark/microdata-php": "^2.0"
+        "linclark/microdata-php": "^2.0",
+        "laravel/tinker": "^1.0",
+        "laravel/scout": "^3.0",
+        "teamtnt/laravel-scout-tntsearch-driver": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~4.0",
-        "symfony/css-selector": "2.8.*|3.0.*",
-        "symfony/dom-crawler": "2.8.*|3.0.*",
-        "laracasts/generators": "^1.1",
+        "phpunit/phpunit": "~5.7",
+        "symfony/css-selector": "3.1.*",
+        "symfony/dom-crawler": "3.1.*",
 		"euskadi31/microdata": "dev-master@dev"
     },
     "autoload": {

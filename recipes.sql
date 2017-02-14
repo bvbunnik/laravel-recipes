@@ -255,26 +255,6 @@ INSERT INTO `ingredients` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (198, 'soya', '2016-10-25 20:20:53', '2016-10-25 20:20:53'),
 (199, 'ketjap', '2016-10-25 20:20:53', '2016-10-25 20:20:53');
 
---
--- Dumping data for table `migrations`
---
-
-INSERT INTO `migrations` (`migration`, `batch`) VALUES
-('2014_01_07_073615_create_tagged_table', 1),
-('2014_01_07_073615_create_tags_table', 1),
-('2014_10_12_000000_create_users_table', 1),
-('2014_10_12_100000_create_password_resets_table', 1),
-('2016_05_30_130720_create_cuisines_table', 1),
-('2016_05_30_130745_create_courses_table', 1),
-('2016_05_30_130755_create_units_table', 1),
-('2016_05_30_130807_create_ingredients_table', 1),
-('2016_05_30_130817_create_recipes_table', 1),
-('2016_05_30_130914_create_ingredient_recipe_pivot_table', 1),
-('2016_05_30_185747_add_abbreviation_to_units_table', 1),
-('2016_05_31_080022_add_description_to_recipes_table', 1),
-('2016_06_06_074927_add_photo_to_recipes_table', 1),
-('2016_09_20_193709_add_lastPrepared_to_recipes_table', 1),
-('2016_09_22_211725_add_rating_to_recipes_table', 1);
 
 --
 -- Dumping data for table `recipes`

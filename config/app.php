@@ -163,6 +163,9 @@ return [
 		Conner\Tagging\Providers\TaggingServiceProvider::class,
 		Intervention\Image\ImageServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
+		Laravel\Scout\ScoutServiceProvider::class,
+		TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
+		Laravel\Tinker\TinkerServiceProvider::class,
 		
     ],
 

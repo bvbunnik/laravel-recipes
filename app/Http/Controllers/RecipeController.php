@@ -38,10 +38,10 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        $courses_list = Course::lists('name')->toJson();
-        $cuisines_list = Cuisine::lists('name')->toJson();
-        $ingredients_list = Ingredient::lists('name')->toJson();
-        $units_list = Unit::lists('name')->toJson();
+        $courses_list = Course::pluck('name')->toJson();
+        $cuisines_list = Cuisine::pluck('name')->toJson();
+        $ingredients_list = Ingredient::pluck('name')->toJson();
+        $units_list = Unit::pluck('name')->toJson();
         return view('recipes.create', compact('courses_list', 'cuisines_list', 'ingredients_list', 'units_list'));
     }
 
@@ -220,5 +220,27 @@ class RecipeController extends Controller
         $recipe->favourite = !$recipe->favourite;
         $recipe->save();
         return redirect()->action('RecipeController@index');
+    }
+
+    public function search(Request $request)
+    {
+        // First we define the error message we are going to show if no keywords
+        // existed or if no results found.
+        $error = ['error' => 'No results found, please try with different keywords.'];
+
+        // Making sure the user entered a keyword.
+        if($request->has('q')) {
+
+            // Using the Laravel Scout syntax to search the products table.
+            $recipes = Recipe::search($request->get('q'))->get();
+
+            // If there are results return them, if none, return the error message.
+            if ($recipes->count()) {
+                return view('recipes.index', compact('recipes'));
+            } else {
+                return view('recipes.index', compact('error'));
+        }
+        return view('recipes.index', compact('error'));
+    }
     }
 }
