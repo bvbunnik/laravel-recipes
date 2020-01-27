@@ -45,6 +45,10 @@ class RecipeController extends Controller
         return view('recipes.create', compact('courses_list', 'cuisines_list', 'ingredients_list', 'units_list'));
     }
 
+    public function import_recipe()
+    {
+    	return view('recipes.import');
+    }
 
 
     public function import(Request $request)
@@ -125,8 +129,8 @@ class RecipeController extends Controller
         //Check if photo is added (either via file upload or URL)
         if ($request->hasFile('photo')){
             $filename = $request->file('photo')->getClientOriginalName();
-            $request->file('photo')->move('public/files/photos/');
-            $recipe->photo = 'public/files/photos/' . $filename;
+            $request->file('photo')->move('files/photos/');
+            $recipe->photo = 'files/photos/' . $filename;
         } elseif ($request->has('photo_url')){
             $img = Image::make($request->photo_url);
             $filename = 'files/photos/' . Carbon::now()->timestamp . '.png';

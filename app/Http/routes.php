@@ -20,9 +20,7 @@ Route::resource('course', 'CourseController');
 Route::resource('cuisine', 'CuisineController');
 Route::resource('unit', 'UnitController');
 Route::resource('ingredient', 'IngredientController');
-Route::get('recipes/import/', function () {
-    return view('recipes.import');
-});
+Route::get('recipes/import/', 'RecipeController@import_recipe');
 Route::post('recipes/import', 'RecipeController@import');
 Route::post('recipes/{id}/rate', 'RecipeController@rate');
 Route::get('/recipes/favourites/', 'RecipeController@showFavourites');
