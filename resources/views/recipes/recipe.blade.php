@@ -5,7 +5,7 @@
     {
       "@context": "https://schema.org/",
       "@type": "Recipe",
-      "name": "{{$recipe->title}}"",
+      "name": "{{$recipe->title}}",
       "image": [
         "http:\\recipes.home\{{$recipe->photo}}"
       ],
@@ -17,7 +17,7 @@
       "recipeCategory": "{{$recipe->course->name}}",
       "recipeIngredient": [
         @foreach($recipe->ingredients as $ingredient)
-            "{!! $ingredient->pivot->quantity !!} {!! $ingredient->units_title !!} {!! $ingredient->name !!}",
+            "{!! $ingredient->pivot->quantity !!} {!! $ingredient->units_title !!} {!! $ingredient->name !!}" @if(!$loop->last),@endif
         @endforeach
       ],
       "recipeInstructions": [
