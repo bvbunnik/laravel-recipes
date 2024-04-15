@@ -12,7 +12,7 @@
       "description": @json($recipe->description),
       "recipeCuisine": @json($recipe->cuisine->name),
       "prepTime": "PT1M",
-      "cookTime": "PT"@json($recipe->cooking_time)"M",
+      "cookTime": "PT@json($recipe->cooking_time)M",
       "totalTime": "PT3M",
       "keywords": "non-alcoholic",
       "recipeYield": "4 servings",
