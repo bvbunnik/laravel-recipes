@@ -5,19 +5,19 @@
     {
       "@context": "https://schema.org/",
       "@type": "Recipe",
-      "name": {{$recipe->title}},
+      "name": "{{$recipe->title}}"",
       "image": [
-        http:\\recipes.home\{{$recipe->photo}}
+        "http:\\recipes.home\{{$recipe->photo}}"
       ],
-      "description": {{$recipe->description}},
-      "recipeCuisine": {{($recipe->cuisine->name)}},
+      "description": "{{$recipe->description}}",
+      "recipeCuisine": "{{($recipe->cuisine->name)}}",
       "cookTime": "PT{{$recipe->cooking_time}}M",
       "totalTime": "PT{{$recipe->cooking_time}}M",
       "recipeYield": "{{$recipe->servings}} servings",
       "recipeCategory": "{{$recipe->course->name}}",
       "recipeIngredient": [
         @foreach($recipe->ingredients as $ingredient)
-            {!! $ingredient->pivot->quantity !!} {!! $ingredient->units_title !!} {!! $ingredient->name !!}
+            "{!! $ingredient->pivot->quantity !!} {!! $ingredient->units_title !!} {!! $ingredient->name !!}"
         @endforeach
       ],
       "recipeInstructions": [
