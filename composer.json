@@ -13,7 +13,8 @@
         "linclark/microdata-php": "^2.0",
         "laravel/tinker": "^2.0",
         "laravel/scout": "^7.0",
-        "teamtnt/laravel-scout-tntsearch-driver": "^7.2"
+        "teamtnt/laravel-scout-tntsearch-driver": "^7.2",
+      "ext-curl": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.9",

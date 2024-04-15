@@ -57,6 +57,19 @@
             </div>
         </div>
     </div>
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            @if(is_array(session()->get('success')))
+                <ul>
+                    @foreach (session()->get('success') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @else
+                {{ session()->get('success') }}
+            @endif
+        </div>
+    @endif
     @yield('content')
     <!-- JavaScripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>

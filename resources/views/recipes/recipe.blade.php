@@ -53,7 +53,13 @@
                     {!! $recipe->preparation !!}
                 </div>
             </div>
-
+            <div class="row">
+                <div class="col-md-6">
+                    {{ Form::open(['method' => 'DELETE', 'route' => ['recipes.destroy', $recipe]]) }}
+                    {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+                    {{ Form::close() }}
+                </div>
+            </div>
         </div>
     </div>
 @endsection

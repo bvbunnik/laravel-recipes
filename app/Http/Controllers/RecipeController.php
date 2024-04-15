@@ -184,7 +184,13 @@ class RecipeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $courses_list = Course::pluck('name')->toJson();
+        $cuisines_list = Cuisine::pluck('name')->toJson();
+        $ingredients_list = Ingredient::pluck('name')->toJson();
+        $units_list = Unit::pluck('name')->toJson();
+        $recipe = Recipe::with('course', 'cuisine', 'ingredients')->findorFail($id);
+        //dd($recipe);
+        return view('recipes.edit', compact('recipe','courses_list', 'cuisines_list', 'ingredients_list', 'units_list'));
     }
 
     /**
@@ -202,12 +208,17 @@ class RecipeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        $recipe = Recipe::findorFail($id);
+        if($recipe->delete()) {
+            return redirect()->action('RecipeController@index')->withSuccess(['Recipe deleted!']);
+        } else {
+            return redirect()->back()->withSuccess('Not succeeded...');
+        }
     }
 
     public function showFavourites()
