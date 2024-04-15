@@ -17,13 +17,12 @@
       "recipeCategory": "{{$recipe->course->name}}",
       "recipeIngredient": [
         @foreach($recipe->ingredients as $ingredient)
-            "{!! $ingredient->pivot->quantity !!} {!! $ingredient->units_title !!} {!! $ingredient->name !!}"
+            "{!! $ingredient->pivot->quantity !!} {!! $ingredient->units_title !!} {!! $ingredient->name !!}",
         @endforeach
       ],
       "recipeInstructions": [
-        {{$recipe->preparation}}
-      ],
-      
+        "{!! $recipe->preparation !!}"
+      ]
     }
     </script>
     <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
